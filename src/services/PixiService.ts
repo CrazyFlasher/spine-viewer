@@ -1,14 +1,4 @@
-import {
-    TextureAtlas,
-    AtlasAttachmentLoader,
-    SkeletonJson,
-    RegionAttachment,
-    MeshAttachment,
-    ClippingAttachment,
-    SkeletonBounds,
-    PathAttachment,
-    Spine
-} from "@pixi-spine/all-3.8";
+
 
 import {
     Application,
@@ -16,13 +6,24 @@ import {
     Sprite,
     Texture,
     Container,
-    Graphics,
+    Graphics, Ticker, UPDATE_PRIORITY,
 
 } from "pixi.js";
 import events from "../events";
 import { AnimationPlayData, DebugOption, FilesLoadedData, SpineMixin } from "../interfaces";
 import { hexStringToNumber } from "../utils/numberUtils";
 import { spineDebug } from "../utils/spineDebug";
+import {TextureAtlas} from "@pixi-spine/base";
+import {
+    AtlasAttachmentLoader,
+    ClippingAttachment,
+    MeshAttachment,
+    PathAttachment,
+    RegionAttachment,
+    SkeletonBounds, SkeletonJson,
+    Spine
+} from "@pixi-spine/runtime-3.7";
+import {addStats, Stats} from "pixi-stats";
 
 interface PixiDragEvent {
     data: {
@@ -278,6 +279,11 @@ class PixiService {
             height: window.innerHeight,
         });
         wrapper?.appendChild(this.app.view);
+
+        const stats = addStats(document, this.app);
+        const ticker: Ticker = Ticker.shared;
+
+        ticker.add(stats.update, stats, UPDATE_PRIORITY.UTILITY);
 
         this.background = new Sprite(Texture.WHITE);
 

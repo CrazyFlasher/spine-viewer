@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pixi-spine/all-3.8": "^3.1.0",
+    "@pixi-spine/base": "3.0.13",
+    "@pixi-spine/runtime-3.7": "3.0.13",
     "copy-to-clipboard": "^3.3.3",
-    "pixi.js": "^6.5.8",
+    "pixi.js": "6.3.2",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
@@ -22,7 +23,7 @@
     "zustand": "^4.1.5"
   },
   "devDependencies": {
-    "@types/pixi-spine": "^1.4.2",
+    "@types/pixi-spine": "1.4.2",
     "@types/react": "^18.0.24",
     "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.0.8",
@@ -30,6 +31,7 @@
     "@vitejs/plugin-react": "^2.2.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
-    "vite-plugin-pwa": "^0.14.0"
+    "vite-plugin-pwa": "^0.14.0",
+    "pixi-stats": "1.2.2"
   }
 }
